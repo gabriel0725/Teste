@@ -1,0 +1,31 @@
+.baile-casinha-foto{
+    max-height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+.baile-avatar{
+    width: 50px;
+    height: 50px;
+}
+.baile-avatar + .baile-avatar{
+    margin-left: 0.5em;
+}
+.quebrada-image{
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+}
+.quebrs{
+    color: white;
+    background: rgba($color: #000000, $alpha: 0.8) ;
+    position: absolute;
+    bottom: 0.5em;
+    padding: 3px;
+    margin: 0;
+    font-size: 1.0em;
+    border-radius: 0 0.3em 0.3em 0;
+}
+.socios{
+    width: 50px;
+    height: 50px;
+}
