@@ -1,3 +1,29 @@
-<ion-content class="ion-padding">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Meu app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content class="ion-padding">
+<h1 class="ion-text-center">O valor atual é {{currentValue}}</h1>
+<ion-row class="ion-justify-content-center">
+  <ion-col size="auto">
+    <ion-button (click)="increment()">
+      <ion-icon name="add" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col size="auto">
+    <ion-button (click)="clear()">
+      <ion-icon name="refresh" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col size="auto">
+    <ion-button (click)="decrement()">
+      <ion-icon name="remove" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
+<h1>O valor maximo foi {{maxValue}}</h1>
 </ion-content>
