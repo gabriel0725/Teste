@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-input type="number" [ngModel]="currentValue"></ion-input>
 <h1 class="ion-text-center">O valor atual é {{currentValue}}</h1>
 <ion-row class="ion-justify-content-center">
   <ion-col size="auto">
@@ -25,5 +26,5 @@
     </ion-button>
   </ion-col>
 </ion-row>
-<h1>O valor maximo foi {{maxValue}}</h1>
+<h1 class="ion-text-center">O valor maximo foi {{maxValue}}</h1>
 </ion-content>
