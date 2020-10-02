@@ -1,34 +1,62 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Conversor de bits
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-item>
-    <ion-label position="floating">Valor</ion-label>
-    <ion-input  type="number" [(ngModel)]="selectedCash"></ion-input>
-  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{fromUnit}}</ion-label>
+        <ion-input type="number" [(ngModel)]="fromValue" (ionChange)="calculate()"></ion-input>
+      </ion-item>
 
-<h1 class="ion-text-center">O valor atual é {{currentValue}}</h1>
-<ion-row class="ion-justify-content-center">
-  <ion-col size="auto">
-    <ion-button (click)="increment()">
-      <ion-icon name="add" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-col>
-  <ion-col size="auto">
-    <ion-button (click)="clear()">
-      <ion-icon name="refresh" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-col>
-  <ion-col size="auto">
-    <ion-button (click)="decrement()">
-      <ion-icon name="remove" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-col>
-</ion-row>
-<h1 class="ion-text-center">O valor maximo foi {{maxValue}}</h1>
+      <ion-item>
+        <ion-label position="floating">From</ion-label>
+        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="fromUnit">
+          <ion-select-option value="bit">Bit</ion-select-option>
+          <ion-select-option value="byte">Byte</ion-select-option>
+          <ion-select-option value="kilobit">kiloBit</ion-select-option>
+          <ion-select-option value="kilobyte">kiloByte</ion-select-option>
+          <ion-select-option value="megabit">megaBit</ion-select-option>
+          <ion-select-option value="megabyte">megaByte</ion-select-option>
+          <ion-select-option value="gigabit">gigaBit</ion-select-option>
+          <ion-select-option value="gigabyte">gigaByte</ion-select-option>
+          <ion-select-option value="terabit">teraBit</ion-select-option>
+          <ion-select-option value="terabyte">teraByte</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{toUnit}}</ion-label>
+        <ion-input disabled type="number" [(ngModel)]="toValue"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">To</ion-label>
+        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="toUnit">
+          <ion-select-option value="bit">Bit</ion-select-option>
+          <ion-select-option value="byte">Byte</ion-select-option>
+          <ion-select-option value="kilobit">kiloBit</ion-select-option>
+          <ion-select-option value="kilobyte">kiloByte</ion-select-option>
+          <ion-select-option value="megabit">megaBit</ion-select-option>
+          <ion-select-option value="megabyte">megaByte</ion-select-option>
+          <ion-select-option value="gigabit">gigaBit</ion-select-option>
+          <ion-select-option value="gigabyte">gigaByte</ion-select-option>
+          <ion-select-option value="terabit">teraBit</ion-select-option>
+          <ion-select-option value="terabyte">teraByte</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="medium" (click)="change()">
+      <ion-icon name="swap-horizontal-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
