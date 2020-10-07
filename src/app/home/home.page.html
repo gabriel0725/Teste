@@ -1,62 +1,44 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Conversor de biiits
+      Que jogo voce é?
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label position="floating">{{fromUnit}}</ion-label>
-        <ion-input type="number" [(ngModel)]="fromValue" (ionChange)="calculate()"></ion-input>
-      </ion-item>
+<ion-content>
+  <ion-card *ngIf="!isDone">
+    <ion-card-header>
+      <ion-card-title>{{questions[currentQuestion].text}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group name="auto" [(ngModel)]="questions[currentQuestion].selectedOption">
+          <ion-item *ngFor="let option of questions[currentQuestion].options; let i = index">
+            <ion-label>{{option}}</ion-label>
+            <ion-radio slot="start" [value]="i" ></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-button (click)="next()" expand="block" [disabled]="questions[currentQuestion].selectedOption == null" fill="clear" shape="round">
+        <ion-icon slot="end" name="chevron-forward"></ion-icon>
+        Próxima pergunta
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
-      <ion-item>
-        <ion-label position="floating">From</ion-label>
-        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="fromUnit">
-          <ion-select-option value="bit">Bit</ion-select-option>
-          <ion-select-option value="byte">Byte</ion-select-option>
-          <ion-select-option value="kilobit">kiloBit</ion-select-option>
-          <ion-select-option value="kilobyte">kiloByte</ion-select-option>
-          <ion-select-option value="megabit">megaBit</ion-select-option>
-          <ion-select-option value="megabyte">megaByte</ion-select-option>
-          <ion-select-option value="gigabit">gigaBit</ion-select-option>
-          <ion-select-option value="gigabyte">gigaByte</ion-select-option>
-          <ion-select-option value="terabit">teraBit</ion-select-option>
-          <ion-select-option value="terabyte">teraByte</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
+  <ion-card color="primary" *ngIf="isDone">
+    <img [src]="possibleResults[mostVoted].image" [alt]="possibleResults[mostVoted].name">
+    <ion-card-content>
+      <h2>Finalizado</h2>
+      <p>Você deveria jogar {{possibleResults[mostVoted].name}}</p>
 
-    <ion-col>
-      <ion-item>
-        <ion-label position="floating">{{toUnit}}</ion-label>
-        <ion-input disabled type="number" [(ngModel)]="toValue"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">To</ion-label>
-        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="toUnit">
-          <ion-select-option value="bit">Bit</ion-select-option>
-          <ion-select-option value="byte">Byte</ion-select-option>
-          <ion-select-option value="kilobit">kiloBit</ion-select-option>
-          <ion-select-option value="kilobyte">kiloByte</ion-select-option>
-          <ion-select-option value="megabit">megaBit</ion-select-option>
-          <ion-select-option value="megabyte">megaByte</ion-select-option>
-          <ion-select-option value="gigabit">gigaBit</ion-select-option>
-          <ion-select-option value="gigabyte">gigaByte</ion-select-option>
-          <ion-select-option value="terabit">teraBit</ion-select-option>
-          <ion-select-option value="terabyte">teraByte</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+      <ion-button (click)="confirmReset()" expand="block" shape="round" color="light" class="ion-margin-top">
+        <ion-icon slot="start" name="refresh"></ion-icon>
+        Jogar de novo
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="medium" (click)="change()">
-      <ion-icon name="swap-horizontal-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+ 
 </ion-content>
