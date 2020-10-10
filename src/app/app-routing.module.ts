@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'step1',
+    loadChildren: () => import('./step1/step1.module').then( m => m.Step1PageModule)
+  },
 ];
 
 @NgModule({
