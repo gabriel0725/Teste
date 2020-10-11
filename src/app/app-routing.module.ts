@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'step2',
     loadChildren: () => import('./step2/step2.module').then( m => m.Step2PageModule)
   },
+  {
+    path: 'step3',
+    loadChildren: () => import('./step3/step3.module').then( m => m.Step3PageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
 
 ];
 
