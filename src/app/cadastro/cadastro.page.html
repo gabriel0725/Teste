@@ -5,5 +5,83 @@
 </ion-header>
 
 <ion-content>
-  <h1>formulario aqui lalala</h1>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+      Requer um nome.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
+      Nome precisa ter no minimo 2 caracteres.
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+      Requer um email.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+      Coloque um email valido.
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Data de nascimento</ion-label>
+      <ion-datetime (ionChange)="getDate($event)" formControlName="dob" [value]="defaultDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input maxlength="10" formControlName="mobile" type="text" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+      Requer um numero de celular.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
+      Somente numeros.
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Cep</ion-label>
+      <ion-input maxlength="10" formControlName="cep" type="number" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.cep.errors?.required">
+      Precisa colocar um CEP valido.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.cep.errors?.pattern">
+      Somente numeros.
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Numero</ion-label>
+      <ion-input maxlength="10" formControlName="num" type="number" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.num.errors?.required">
+      Requer um numero.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.num.errors?.pattern">
+      Somente numeros.
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">complemento</ion-label>
+      <ion-input formControlName="complemento" type="text"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.complemento.errors?.required">
+      Requer um nome.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.complemento.errors?.minlength">
+      Nome precisa ter no minimo 2 caracteres.
+    </span>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
