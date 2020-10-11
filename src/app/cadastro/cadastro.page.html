@@ -72,10 +72,10 @@
       <ion-input formControlName="complemento" type="text"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.complemento.errors?.required">
-      Requer um nome.
+      Requer um complemento.
     </span>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.complemento.errors?.minlength">
-      Nome precisa ter no minimo 2 caracteres.
+      Complemento precisa ter no minimo 2 caracteres.
     </span>
 
     <ion-row>
