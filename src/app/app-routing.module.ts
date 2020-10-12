@@ -38,6 +38,18 @@ const routes: Routes = [
     path: 'pagamento',
     loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
   },
+  {
+    path: 'finish',
+    loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
+  },
+  {
+    path: 'ag-entrega',
+    loadChildren: () => import('./ag-entrega/ag-entrega.module').then( m => m.AgEntregaPageModule)
+  },
+  {
+    path: 'entrega',
+    loadChildren: () => import('./entrega/entrega.module').then( m => m.EntregaPageModule)
+  },
 
 ];
 

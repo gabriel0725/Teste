@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="titulo">ag-entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="ion-text-center">Uau, parece que ja esta tudo limpo, agora é só agendar o dia da entrega</h1>
+  
+  <ion-item lines="full">
+    <ion-label position="floating">Dia da entrega</ion-label>
+    <ion-datetime [(ngModel)]="mydate" min="2020" max="2020"></ion-datetime>
+  </ion-item>
+
+  <ion-item >
+    <ion-label>Hora da entrega</ion-label>
+    <ion-datetime [(ngModel)]="mydate" displayFormat="HH:mm"></ion-datetime>
+  </ion-item>
+
+
+
+<ion-card class="cliButton">
+  <ion-button (click)="agendamento()" routerLink="/entrega" size="large" expand="full" fill="clear">Agendar</ion-button>
+</ion-card>
+
+</ion-content>
