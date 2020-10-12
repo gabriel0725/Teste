@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="titulo">pagamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h1 class="ion-text-center">Escolha a forma de pagamento</h1>
+<h4 class="ion-text-center">(O pagamento só sera realizado no momento da retirada do certo de roupas)</h4>
+  <p>Método Selecionado: {{ paymentMethod }}</p>
+  <ion-radio-group [(ngModel)]="paymentMethod">
+    <ion-item>
+      <ion-label>Dinheiro</ion-label>
+      <ion-radio slot="start" value="dinheiro"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Crédito</ion-label>
+      <ion-radio slot="start" value="credito"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Débito</ion-label>
+      <ion-radio slot="start" value="debito"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <ion-card class="cliButton">
+    <ion-button (click)="paymentForm()" size="large" expand="full" fill="clear">Finalizar</ion-button>
+  </ion-card>
+
+</ion-content>
